@@ -1,0 +1,14 @@
+-- Make front-end
+
+
+COURSE MODEL
+- Title
+- Price
+- Author -> fk
+- Date
+- Rating *
+- Category
+
+INSTRUCTOR MODEL
+- Name
+- Rating
