@@ -6,9 +6,10 @@ export default function Login() {
     <div>
       <Navbar />
       <div className="container">
+        <h3 className="is-size-3 has-text-centered">Log In</h3>
         <div className="columns is-centered" style={{ marginTop: 50 }}>
           <div className="column is-half is-vcentered">
-            <form style={{ width: 400 }}>
+            <form>
               <div className="field">
                 <label htmlFor="email" className="label has-text-white">
                   Email

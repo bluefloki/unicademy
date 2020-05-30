@@ -18,6 +18,9 @@ export default function MainPage() {
               <Link to="/courses" className="button is-white">
                 Browse Courses
               </Link>
+              <Link to="/teach" className="button is-white is-outlined">
+                Teach a Course
+              </Link>
             </div>
           </div>
         </div>
@@ -25,9 +28,3 @@ export default function MainPage() {
     </div>
   );
 }
-
-const styles = {
-  button: {
-    position: "relative",
-  },
-};

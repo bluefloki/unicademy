@@ -6,12 +6,13 @@ export default function SignUp() {
     <div>
       <Navbar />
       <div className="container">
+        <h3 className="is-size-3 has-text-centered">Sign Up</h3>
         <div className="columns is-centered" style={{ marginTop: 50 }}>
           <div className="column is-half is-vcentered">
-            <form style={{ width: 400 }}>
+            <form>
               <div className="field">
                 <label htmlFor="name" className="label has-text-white">
-                  Full Name
+                  Full Name <span className="has-text-info">*</span>
                 </label>
                 <div className="control">
                   <input class="input" type="text" name="name" />
@@ -19,7 +20,7 @@ export default function SignUp() {
               </div>
               <div className="field">
                 <label htmlFor="email" className="label has-text-white">
-                  Email
+                  Email <span className="has-text-info">*</span>
                 </label>
                 <div className="control">
                   <input class="input" type="text" name="email" />
@@ -27,7 +28,7 @@ export default function SignUp() {
               </div>
               <div className="field">
                 <label htmlFor="password" className="label has-text-white">
-                  Password
+                  Password <span className="has-text-info">*</span>
                 </label>
                 <div className="control">
                   <input class="input" type="password" name="password" />
@@ -37,6 +38,9 @@ export default function SignUp() {
                 <button className="button is-primary" type="submit">
                   Sign Up
                 </button>
+                <p className="help">
+                  <span className="has-text-info">*</span> = required
+                </p>
               </div>
             </form>
           </div>

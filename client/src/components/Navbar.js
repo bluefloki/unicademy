@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="navbar is-dark">
+    <nav className="navbar is-dark" style={{ marginBottom: 50 }}>
       <div className="navbar-brand">
         <h1 className="navbar-item is-size-2">Unicademy</h1>
       </div>

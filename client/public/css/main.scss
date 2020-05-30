@@ -6,4 +6,9 @@ $text: white;
 
 $body-background-color: $dark;
 
+form {
+  width: 500px;
+  margin: auto;
+}
+
 @import "./bulma-0.8.2/bulma.sass";

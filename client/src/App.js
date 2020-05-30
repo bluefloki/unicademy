@@ -1,10 +1,11 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import AboutPage from "./components/AboutPage";
 import CourseList from "./components/CourseList";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import Teach from "./components/Teach";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/courses" component={CourseList} />
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/teach" component={Teach} />
     </Router>
   );
 }
