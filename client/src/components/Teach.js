@@ -31,20 +31,16 @@ export default function Teach() {
     setResume(e.target.files[0]);
   };
 
-  const sendData = async (data) => {
-    await axios.post("/api/v1/teach", data, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-  };
-
   //On Submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let formData = new FormData();
     formData.append("data", JSON.stringify(userInput));
-    formData.append("resume", resume, resume.name);
-    console.log(formData.get("resume"));
-    alert("form submitted");
+    formData.append("resume", resume);
+    await axios.post("/api/v1/teach", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    alert("Form Submitted");
   };
 
   return (
