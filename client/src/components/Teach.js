@@ -25,18 +25,26 @@ export default function Teach() {
     setUserInput({ [key]: value });
   };
 
+  //Get File
+  const [resume, setResume] = useState(null);
+  const handleFile = (e) => {
+    setResume(e.target.files[0]);
+  };
+
+  const sendData = async (data) => {
+    await axios.post("/api/v1/teach", data, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  };
+
   //On Submit
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let formData = new FormData();
-    formData.set("data", JSON.stringify(userInput));
-    console.log(formData.get("data"));
-    try {
-      await axios.post("/api/v1/teach", formData);
-    } catch (error) {
-      console.log(error);
-    }
-    alert("The form has been submitted");
+    formData.append("data", JSON.stringify(userInput));
+    formData.append("resume", resume, resume.name);
+    console.log(formData.get("resume"));
+    alert("form submitted");
   };
 
   return (
@@ -126,9 +134,14 @@ export default function Teach() {
                 <label htmlFor="resume" className="label has-text-white">
                   Resume <span className="has-text-info">*</span>
                 </label>
-                <div className="file">
+                <div className="file has-name">
                   <label className="file-label">
-                    <input className="file-input" type="file" name="resume" />
+                    <input
+                      className="file-input"
+                      type="file"
+                      name="resume"
+                      onChange={handleFile}
+                    />
                     <span className="file-cta">
                       <span className="file-icon has-text-grey-darker">
                         <i className="fas fa-upload"></i>
@@ -136,6 +149,9 @@ export default function Teach() {
                       <span className="file-label has-text-grey-darker">
                         Choose a file…
                       </span>
+                    </span>
+                    <span className="file-name">
+                      {resume !== null ? resume.name : ""}
                     </span>
                   </label>
                 </div>
