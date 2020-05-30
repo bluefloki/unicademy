@@ -12,3 +12,8 @@ COURSE MODEL
 INSTRUCTOR MODEL
 - Name
 - Rating
+
+USER MODEL
+- Name
+- Email
+- Courses Bought
