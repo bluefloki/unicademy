@@ -14,6 +14,18 @@ router.get("/teacherApplications", async (req, res) => {
   }
 });
 
+//GET SINGLE APPLICATION
+router.get("/teacherApplications/:id", async (req, res) => {
+  try {
+    const application = await TeacherApplication.findOne({
+      where: { id: req.params.id },
+    });
+    res.status(201).json(application);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 //DELETING TEACHER APPLICATIONS
 router.delete("/teacherApplications/:id", async (req, res) => {
   console.log(req.params.id);

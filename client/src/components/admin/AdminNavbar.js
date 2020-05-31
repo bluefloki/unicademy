@@ -14,8 +14,15 @@ export default function AdminNavbar() {
         >
           AdminPanel
         </h2>
-        <Link to="/admin/teacherApplications">Teacher Applications</Link>
-        <br />
+        <aside className="menu">
+          <ul className="menu-list"></ul>
+          <li>
+            <Link to="/admin/teacherApplications">Teacher Applications</Link>
+          </li>
+          <li>
+            <Link to="/admin/users">Users</Link>
+          </li>
+        </aside>
       </div>
     </div>
   );

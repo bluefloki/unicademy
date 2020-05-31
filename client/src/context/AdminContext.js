@@ -4,6 +4,7 @@ import axios from "axios";
 
 const initialState = {
   applications: [],
+  singleApplication: {},
 };
 
 const AdminContext = createContext(initialState);
@@ -26,6 +27,20 @@ export const AdminProvider = ({ children }) => {
     }
   };
 
+  const resetApplications = () => {
+    dispatch({
+      type: "RESET_APPLICATIONS",
+    });
+  };
+
+  const getSingleTeacherApplication = async (id) => {
+    const res = await axios.get(`/api/v1/admin/teacherApplications/${id}`);
+    dispatch({
+      type: "GET_SINGLE_APPLICATION",
+      payload: res.data,
+    });
+  };
+
   const removeTeacherApplication = async (id) => {
     try {
       await axios.delete(`/api/v1/admin/teacherApplications/${id}`);
@@ -44,8 +59,11 @@ export const AdminProvider = ({ children }) => {
     <AdminContext.Provider
       value={{
         applications: state.applications,
+        singleApplication: state.singleApplication,
         getTeacherApplications,
         removeTeacherApplication,
+        resetApplications,
+        getSingleTeacherApplication,
       }}
     >
       {children}

@@ -6,6 +6,18 @@ export default (state, action) => {
         applications: action.payload,
       };
 
+    case "RESET_APPLICATIONS":
+      return {
+        ...state,
+        applications: [],
+      };
+
+    case "GET_SINGLE_APPLICATION":
+      return {
+        ...state,
+        singleApplication: action.payload,
+      };
+
     case "REMOVE_TEACHER_APPLICATION":
       return {
         ...state,

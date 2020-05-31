@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import TeacherApplications from "./TeacherApplications";
 import axios from "axios";
 import { AdminProvider } from "../../context/AdminContext";
+import ApplicationDetails from "./ApplicationDetails";
 
 export default function AdminPage() {
   return (
@@ -14,6 +15,16 @@ export default function AdminPage() {
           <Route
             path="/admin/teacherApplications"
             component={TeacherApplications}
+          />
+          <Route
+            path="/admin/applicationDetails/:id"
+            component={ApplicationDetails}
+          />
+          <Route
+            path="/admin/users"
+            component={() => {
+              return <p>Hello</p>;
+            }}
           />
         </div>
       </div>
