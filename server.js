@@ -12,6 +12,7 @@ if (process.env.NODE_ENV !== "production") {
 
 //Routes
 app.use("/api/v1", require("./routes/api/indexRouter"));
+app.use("/api/v1/admin", require("./routes/api/adminRouter"));
 
 //Static files
 if (process.env.NODE_ENV == "production") {

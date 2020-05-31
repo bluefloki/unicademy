@@ -6,16 +6,20 @@ import CourseList from "./components/CourseList";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Teach from "./components/Teach";
+//ADMIN
+import AdminPage from "./components/admin/AdminPage";
 
 function App() {
   return (
     <Router>
       <Route exact path="/" component={MainPage} />
-      <Route exact path="/about" component={AboutPage} />
-      <Route exact path="/courses" component={CourseList} />
-      <Route exact path="/signup" component={SignUp} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/teach" component={Teach} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/courses" component={CourseList} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/login" component={Login} />
+      <Route path="/teach" component={Teach} />
+      {/*Admin*/}
+      <Route path="/admin" component={AdminPage} />
     </Router>
   );
 }
