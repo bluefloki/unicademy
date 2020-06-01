@@ -1,16 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const TeacherApplication = sequelize.define('TeacherApplication', {
+  const TeacherApplications = sequelize.define('TeacherApplications', {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
+    location: DataTypes.STRING,
     category: DataTypes.STRING,
     subject: DataTypes.STRING,
     videoLink: DataTypes.STRING,
     resumePath: DataTypes.STRING,
     message: DataTypes.STRING
   }, {});
-  TeacherApplication.associate = function(models) {
+  TeacherApplications.associate = function(models) {
     // associations can be defined here
   };
-  return TeacherApplication;
+  return TeacherApplications;
 };

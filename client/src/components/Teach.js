@@ -80,6 +80,20 @@ export default function Teach() {
                 </div>
               </div>
               <div className="field">
+                <label htmlFor="location" className="label has-text-white">
+                  Location <span className="has-text-info">*</span>
+                </label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    name="location"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="field">
                 <label htmlFor="category" className="label has-text-white">
                   Category <span className="has-text-info">*</span>
                 </label>
@@ -151,7 +165,7 @@ export default function Teach() {
                     </span>
                   </label>
                 </div>
-                <p className="help">doc, docx, pdf, or txt file</p>
+                <p className="help">doc, docx, or pdf</p>
               </div>
               <div className="field">
                 <label htmlFor="message" className="label has-text-white">

@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const TeacherApplication = require("../../database/models").TeacherApplication;
+const TeacherApplication = require("../../database/models").TeacherApplications;
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
+const fs = require("fs");
 
 //GETTING TEACHER APPLICATIONS
 router.get("/teacherApplications", async (req, res) => {
@@ -28,8 +29,27 @@ router.get("/teacherApplications/:id", async (req, res) => {
 
 //DELETING TEACHER APPLICATIONS
 router.delete("/teacherApplications/:id", async (req, res) => {
-  console.log(req.params.id);
   try {
+    const application = await TeacherApplication.findOne({
+      where: { id: req.params.id },
+    });
+    const { resumePath, id } = application;
+    if (resumePath) {
+      fs.unlink(
+        path.resolve(
+          __dirname,
+          "../../",
+          "client/src/assets/uploads",
+          resumePath
+        ),
+        (error) => {
+          if (error) console.log(error);
+          console.log("file deleted");
+        }
+      );
+    }
+    await application.destroy();
+    console.log("application deleted");
     res.status(201).json({ message: "Success" });
   } catch (error) {
     res.status(400).json({ message: "Error" });

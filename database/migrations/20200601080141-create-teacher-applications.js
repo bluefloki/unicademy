@@ -14,6 +14,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      location: {
+        type: Sequelize.STRING
+      },
       category: {
         type: Sequelize.STRING
       },
