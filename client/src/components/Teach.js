@@ -47,7 +47,7 @@ export default function Teach() {
     <div>
       <Navbar />
       <div className="container">
-        <h1 className="is-size-3 has-text-centered">Teach a Course</h1>
+        <h1 className="is-size-2 has-text-centered">Teach a Course</h1>
         <div className="columns is-centered" style={{ marginTop: 50 }}>
           <div className="column is-half">
             <form onSubmit={handleSubmit}>
