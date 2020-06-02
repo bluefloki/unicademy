@@ -18,6 +18,12 @@ export default (state, action) => {
         singleApplication: action.payload,
       };
 
+    case "RESET_SINGLE_APPLICATION":
+      return {
+        ...state,
+        singleApplication: {},
+      };
+
     case "REMOVE_TEACHER_APPLICATION":
       return {
         ...state,

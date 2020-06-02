@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const TeacherApplication = require("../../database/models").TeacherApplications;
-const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 
 //SIGNING UP USERS
@@ -9,13 +8,17 @@ const path = require("path");
 //SAVING TEACHER APPLICATION
 router.post("/teach", async (req, res) => {
   try {
-    let newApplication = TeacherApplication.build(JSON.parse(req.body.data));
+    const applicationBody = JSON.parse(req.body.data);
+    let resume;
     if (req.files) {
-      let resume = req.files.resume;
+      resume = req.files.resume;
       if (resume.mimetype.includes("pdf") || resume.mimetype.includes("word")) {
-        allowedTypes = ["pdf", "docx", "doc"];
+        allowedTypes = ["pdf", "docx"];
         allowedTypes.some((type) => {
-          if (resume.name.includes(type)) resume.name = `${uuidv4()}.${type}`;
+          if (resume.name.includes(type))
+            resume.name = `${applicationBody.name}-${applicationBody.subject}-${
+              Math.floor(Math.random() * 999) + 100
+            }.${type}`;
         });
         resume.mv(
           path.resolve(
@@ -26,15 +29,15 @@ router.post("/teach", async (req, res) => {
           ),
           (err) => {
             if (err) console.log(err);
-            console.log("File Uploaded");
+            console.log("File uploaded");
           }
         );
-      } else {
-        console.log("Incorrect Type");
       }
-      newApplication.resumePath = resume.name;
     }
-    await newApplication.save();
+    await TeacherApplication.create({
+      ...applicationBody,
+      resumePath: resume.name,
+    });
     console.log("App saved");
     res.status(201).json({ message: "Success" });
   } catch (error) {

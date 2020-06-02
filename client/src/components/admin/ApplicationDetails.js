@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useAdminProvider } from "../../context/AdminContext";
+import mammoth from "mammoth";
 
 export default function ApplicationDetails(props) {
-  const { getSingleTeacherApplication, singleApplication } = useAdminProvider();
+  const {
+    getSingleTeacherApplication,
+    resetSingleTeacherApplication,
+    singleApplication,
+  } = useAdminProvider();
 
   useEffect(() => {
     getSingleTeacherApplication(props.match.params.id);
+    return resetSingleTeacherApplication();
   }, []);
 
   const {
@@ -33,12 +39,10 @@ export default function ApplicationDetails(props) {
   const displayResume = () => {
     if (resumePath) {
       return (
-        <div>
-          <iframe
-            src={require(`../../assets/uploads/${resumePath}`)}
-            style={{ width: "100%", height: "70vh" }}
-          ></iframe>
-        </div>
+        <iframe
+          src={require(`../../assets/uploads/${resumePath}`)}
+          style={{ width: "100%", height: "70vh" }}
+        ></iframe>
       );
     }
   };
@@ -72,14 +76,14 @@ export default function ApplicationDetails(props) {
           </a>
         </p>
         <p>
-          <strong>Resume: </strong>
-        </p>
-        {displayResume()}
-        <p>
           <strong>Message: </strong>
           <br />
           {message}
         </p>
+        <p>
+          <strong>Resume: </strong>
+        </p>
+        <div id="resumeDisplay">{displayResume()}</div>
       </div>
     </div>
   );

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Moment from "react-moment";
-import axios from "axios";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAdminProvider } from "../../context/AdminContext";
-import ApplicationDetails from "./ApplicationDetails";
 
 export default function ApplicationsTable({ applications }) {
   return (

@@ -151,6 +151,7 @@ export default function Teach() {
                       type="file"
                       name="resume"
                       onChange={handleFile}
+                      required
                     />
                     <span className="file-cta">
                       <span className="file-icon has-text-grey-darker">
@@ -165,7 +166,7 @@ export default function Teach() {
                     </span>
                   </label>
                 </div>
-                <p className="help">doc, docx, or pdf</p>
+                <p className="help">pdf or docx file</p>
               </div>
               <div className="field">
                 <label htmlFor="message" className="label has-text-white">

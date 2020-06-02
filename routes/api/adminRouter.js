@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const TeacherApplication = require("../../database/models").TeacherApplications;
-const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 const fs = require("fs");
 

@@ -41,6 +41,12 @@ export const AdminProvider = ({ children }) => {
     });
   };
 
+  const resetSingleTeacherApplication = () => {
+    dispatch({
+      type: "RESET_SINGLE_APPLICATION",
+    });
+  };
+
   const removeTeacherApplication = async (id) => {
     try {
       await axios.delete(`/api/v1/admin/teacherApplications/${id}`);
@@ -64,6 +70,7 @@ export const AdminProvider = ({ children }) => {
         removeTeacherApplication,
         resetApplications,
         getSingleTeacherApplication,
+        resetSingleTeacherApplication,
       }}
     >
       {children}
