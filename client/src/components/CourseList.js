@@ -10,10 +10,26 @@ export default function CourseList() {
       <div className="columns" style={{ marginTop: 50 }}>
         <div className="column is-2" style={{ borderRight: "2px solid white" }}>
           <div className="container">
-            <p>Hello this work</p>
+            <form style={{ width: "auto" }}>
+              <div className="field has-addons">
+                <div className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    name="search"
+                    placeholder="Search"
+                  />
+                </div>
+                <div className="control">
+                  <button type="submit" className="button is-primary">
+                    <i className="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-        <div className="column is-10">
+        <div className="column">
           <div className="container">
             {/* INNER GRID */}
             <div className="columns is-multiline is-8">
@@ -28,8 +44,8 @@ export default function CourseList() {
                     </figure>
                   </div>
                   <div className="columns is-multiline" style={{ padding: 10 }}>
-                    <div className="column is-11 is-size-5">AP MATHEMATICS</div>
-                    <div className="column is-1 is-size-5 is-pulled-right">
+                    <div className="column is-10 is-size-5">AP MATHEMATICS</div>
+                    <div className="column is-2 is-size-5 is-pulled-right">
                       <p className="is-pulled-right">$40</p>
                     </div>
                     <div className="column is-half">

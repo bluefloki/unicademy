@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useAdminProvider } from "../../context/AdminContext";
-import mammoth from "mammoth";
 
 export default function ApplicationDetails(props) {
   const {
