@@ -6,6 +6,8 @@ import CourseList from "./components/CourseList";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Teach from "./components/Teach";
+import Pricing from "./components/Pricing";
+import SingleCourse from "./components/SingleCourse";
 //ADMIN
 import AdminPage from "./components/admin/AdminPage";
 
@@ -18,6 +20,8 @@ function App() {
       <Route path="/signup" component={SignUp} />
       <Route path="/login" component={Login} />
       <Route path="/teach" component={Teach} />
+      <Route path="/pricing" component={Pricing} />
+      <Route path="/course/:id" component={SingleCourse} />
       {/*Admin*/}
       <Route path="/admin" component={AdminPage} />
     </Router>

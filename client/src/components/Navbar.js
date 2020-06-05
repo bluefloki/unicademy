@@ -17,6 +17,9 @@ export default function Navbar() {
         <Link to="/courses" className="navbar-item">
           Courses
         </Link>
+        <Link to="/pricing" className="navbar-item">
+          Pricing
+        </Link>
         <div className="navbar-item">
           <div className="buttons">
             <Link to="/signup" className="button is-primary">
