@@ -34,6 +34,22 @@ export default function SignUp() {
                   <input class="input" type="password" name="password" />
                 </div>
               </div>
+              {/* <div className="field">
+                <label htmlFor="plan" className="label has-text-white">
+                  Plan <span className="has-text-info">*</span>
+                </label>
+                <div className="select is-primary">
+                  <select name="plan" required>
+                    <option value="" disabled selected>
+                      Choose Plan
+                    </option>
+                    <option>14 Day Trial (FREE)</option>
+                    <option>Alpha ($20.0/Month)</option>
+                    <option>Beta ($15.0/Month)</option>
+                    <option>Gamma ($12.5/Month)</option>
+                  </select>
+                </div>
+              </div> */}
               <div className="field" style={{ marginTop: 20 }}>
                 <button className="button is-primary" type="submit">
                   Sign Up

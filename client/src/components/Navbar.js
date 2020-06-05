@@ -20,6 +20,9 @@ export default function Navbar() {
         <Link to="/pricing" className="navbar-item">
           Pricing
         </Link>
+        <Link to="/teach" className="navbar-item">
+          Teach
+        </Link>
         <div className="navbar-item">
           <div className="buttons">
             <Link to="/signup" className="button is-primary">

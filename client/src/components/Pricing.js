@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 export default function Plans() {
   const plans = [
@@ -37,7 +38,12 @@ export default function Plans() {
           })}
         </div>
         <div className="has-text-centered">
-          <button className="button is-primary">Become a Member</button>
+          <Link to="/signup" className="button is-primary">
+            Join Now
+          </Link>
+          <p className="help is-size-6">
+            Free 14 Day Trial. No Credit Card Required
+          </p>
         </div>
       </div>
     </div>

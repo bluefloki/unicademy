@@ -99,7 +99,9 @@ export default function Teach() {
                 </label>
                 <div className="select is-primary">
                   <select name="category" onChange={handleChange} required>
-                    <option>Select Category</option>
+                    <option value="" disabled selected>
+                      Select Category
+                    </option>
                     <option>AP Classes</option>
                     <option>Standardized Test</option>
                   </select>
