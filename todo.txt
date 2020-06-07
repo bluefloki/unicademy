@@ -1,19 +1,29 @@
--- Make front-end
-
+-- Track watch time of users to figure out what to pay Teachers
+-- Figure out how Membership will work (With Stripe)
+-- Implement very robust application
+-- Get a good video player
+-- Serve Images and Videos from Linode Object Storage
 
 COURSE MODEL
 - Title
-- Price
 - Author -> fk
 - Date
-- Rating *
 - Category
 
-INSTRUCTOR MODEL
+LECTURE MODEL
+- Title
+- Course -> fk
+- Date
+
+TEACHER MODEL
 - Name
-- Rating
+- Email
+- Password
+- Phone Number
+- Address
 
 USER MODEL
 - Name
 - Email
-- Courses Bought
+- Password
+- Membership Plan

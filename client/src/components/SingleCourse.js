@@ -54,7 +54,9 @@ const ChapterCard = ({ name }) => {
         <div style={{ width: "90%", margin: "auto", marginBottom: 25 }}>
           <ul style={{ listStyle: "disc" }}>
             <li>
-              <Link className="has-text-white is-size-5">Lecture 1</Link>
+              <Link to="/lecture/1" className="has-text-white is-size-5">
+                Lecture 1
+              </Link>
             </li>
             <li>
               <Link className="has-text-white is-size-5">Lecture 2</Link>
