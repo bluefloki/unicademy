@@ -45,4 +45,9 @@ router.post("/teach", async (req, res) => {
   }
 });
 
+router.post("/watched", (req, res) => {
+  console.log(`${req.body.seconds}s played`);
+  res.status(201).json("Success");
+});
+
 module.exports = router;

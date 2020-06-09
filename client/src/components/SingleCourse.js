@@ -59,10 +59,14 @@ const ChapterCard = ({ name }) => {
               </Link>
             </li>
             <li>
-              <Link className="has-text-white is-size-5">Lecture 2</Link>
+              <Link to="/" className="has-text-white is-size-5">
+                Lecture 2
+              </Link>
             </li>
             <li>
-              <Link className="has-text-white is-size-5">Notes</Link>
+              <Link to="/" className="has-text-white is-size-5">
+                Notes
+              </Link>
             </li>
           </ul>
         </div>

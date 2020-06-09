@@ -1,21 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import ReactPlayer from "react-player";
+import axios from "axios";
 
 export default function Lecture() {
+  const [seconds, setSeconds] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+  console.log(seconds);
+  useEffect(() => {
+    let interval;
+    if (isActive) {
+      interval = setInterval(() => {
+        setSeconds(seconds + 1);
+      }, 1000);
+    } else if (!isActive && seconds !== 0) {
+      clearInterval(interval);
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isActive, seconds]);
+
+  window.addEventListener("unload", async (e) => {
+    return await axios.post("/api/v1/watched", { seconds });
+  });
+
   return (
     <div>
       <Navbar />
       <div className="container has-text-centered">
-        <h2 className="is-size-2">Lecture Name</h2>
-        <iframe
-          width="1152"
-          height="648"
-          src="https://www.youtube-nocookie.com/embed/-_QFAWcaGTM"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style={{ marginTop: 50 }}
-        ></iframe>
+        <h2 className="is-size-2" style={{ marginBottom: 50 }}>
+          Lecture Name
+        </h2>
+        <ReactPlayer
+          url="https://vimeo.com/216095263"
+          controls
+          width="100%"
+          style={{ marginBottom: 50 }}
+          config={{
+            vimeo: {
+              playerOptions: {
+                color: "ea7773",
+              },
+            },
+          }}
+          onPlay={() => setIsActive(true)}
+          onPause={() => setIsActive(false)}
+          onBuffer={() => setIsActive(false)}
+          onReady={() => setIsActive(false)}
+          onEnded={() => setIsActive(false)}
+        />
         <p className="has-text-left">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita
           sint facilis, tempora aperiam tempore tenetur id deserunt.

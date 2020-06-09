@@ -32,7 +32,7 @@ export default function Plans() {
       <Navbar />
       <h2 className="is-size-2 has-text-centered">Pricing</h2>
       <div className="container">
-        <div class="columns has-text-centered" style={{ marginTop: 50 }}>
+        <div className="columns has-text-centered" style={{ marginTop: 50 }}>
           {plans.map((plan) => {
             return <PlanCard key={plan.id} plan={plan} />;
           })}

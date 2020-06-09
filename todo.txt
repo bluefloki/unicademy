@@ -6,7 +6,7 @@
 
 COURSE MODEL
 - Title
-- Author -> fk
+- Teacher -> fk
 - Date
 - Category
 
@@ -18,9 +18,8 @@ LECTURE MODEL
 TEACHER MODEL
 - Name
 - Email
-- Password
 - Phone Number
-- Address
+- Location
 
 USER MODEL
 - Name
